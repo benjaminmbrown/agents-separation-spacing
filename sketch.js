@@ -20,14 +20,14 @@ function draw() {
     background(255);
     path.display()
     var mouse = createVector(mouseX, mouseY);
-   // if (debug) { flowfield.display(); }
+   //if (debug) { flowfield.display(); }
     for (var i = 0; i < vehicles.length; i++) {
 
        // vehicles[i].followFlow(flowfield);
         vehicles[i].separate(vehicles);
         //vehicles[i].wander();
 
-       // vehicles[i].followPath(path);
+       vehicles[i].followPath(path);
         vehicles[i].seek(mouse);
         vehicles[i].run();
     }
@@ -36,7 +36,7 @@ function draw() {
 function keyPressed() {
 
     for (var i = 0; i < key; i++) {
-        vehicles.push(new Vehicle(random(width), random(height), random(2, 2), random(0.1, 0.2), width, height));
+        vehicles.push(new Vehicle(random(width), random(height), random(2, 3), random(0.2, 0.4), width, height));
     }
     if (key == 'K') {
         console.log("pressed");
